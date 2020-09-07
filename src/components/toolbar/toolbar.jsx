@@ -23,9 +23,6 @@ const iconTextStyle = {
   userSelect: 'none'
 };
 
-const Icon2D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>2D</p>;
-const Icon3D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>3D</p>;
-
 const ASIDE_STYLE = {
   backgroundColor: SharedStyle.PRIMARY_COLOR.main,
   padding: '10px'
