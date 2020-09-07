@@ -7,9 +7,6 @@ import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
 import If from '../../utils/react-if';
 import {
-  MODE_IDLE,
-  MODE_3D_VIEW,
-  MODE_3D_FIRST_PERSON,
   MODE_VIEWING_CATALOG,
   MODE_CONFIGURING_PROJECT
 } from '../../constants';
@@ -70,7 +67,7 @@ export default class Toolbar extends Component {
 
     let {
       props: { state, width, height, toolbarButtons, allowProjectFileSupport },
-      context: { projectActions, viewer3DActions, translator }
+      context: { projectActions, translator }
     } = this;
 
     let mode = state.get('mode');
@@ -152,8 +149,6 @@ Toolbar.propTypes = {
 
 Toolbar.contextTypes = {
   projectActions: PropTypes.object.isRequired,
-  viewer2DActions: PropTypes.object.isRequired,
-  viewer3DActions: PropTypes.object.isRequired,
   linesActions: PropTypes.object.isRequired,
   holesActions: PropTypes.object.isRequired,
   itemsActions: PropTypes.object.isRequired,
