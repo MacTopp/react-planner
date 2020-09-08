@@ -44,8 +44,8 @@ export default function Item({layer, item, scene, catalog}) {
            data-layer={layer.id}
            data-part="rotation-anchor"
         >
-          <circle cx="0" cy="150" r="10" style={STYLE_CIRCLE}/>
-          <circle cx="0" cy="0" r="150" style={STYLE_CIRCLE2}/>
+          {/* <circle cx="0" cy="150" r="10" style={STYLE_CIRCLE}/>
+          <circle cx="0" cy="0" r="150" style={STYLE_CIRCLE2}/> */}
         </g>
       </If>
     </g>
