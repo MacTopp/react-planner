@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PanelElementEditor from './panel-element-editor/panel-element-editor';
-import PanelGroupEditor from './panel-group-editor';
-import PanelMultiElementsEditor from './panel-element-editor/panel-multi-elements-editor';
-import PanelLayers from './panel-layers';
-import PanelGuides from './panel-guides';
-import PanelGroups from './panel-groups';
-import PanelLayerElements from './panel-layer-elements';
+// import PanelGroupEditor from './panel-group-editor';
+// import PanelMultiElementsEditor from './panel-element-editor/panel-multi-elements-editor';
+// import PanelLayers from './panel-layers';
+// import PanelGuides from './panel-guides';
+// import PanelGroups from './panel-groups';
+// import PanelLayerElements from './panel-layer-elements';
 import * as SharedStyle from '../../shared-style';
 import If from '../../utils/react-if';
 
@@ -46,7 +46,7 @@ export default function Sidebar({ state, width, height, sidebarComponents }) {
     selected.areas.size > 1 ||
     selected.lines.size + selected.items.size + selected.holes.size + selected.areas.size > 1;
 
-  let selectedGroup = state.getIn(['scene', 'groups']).findEntry( g => g.get('selected') );
+  // let selectedGroup = state.getIn(['scene', 'groups']).findEntry( g => g.get('selected') );
 
    let sorter = [
   //   { index: 0, condition: true, dom: <PanelGuides state={state}/> },
