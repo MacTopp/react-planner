@@ -124,7 +124,7 @@ export default class FooterContentButton extends Component {
     return false;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if( nextProps.toggleState != this.props.toggleState  )
       this.state.active = nextProps.toggleState;
   }
