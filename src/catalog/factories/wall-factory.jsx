@@ -4,10 +4,6 @@ import * as SharedStyle from '../../shared-style';
 import * as Geometry from '../../utils/geometry';
 import Translator from '../../translator/translator';
 
-const epsilon = 20;
-const STYLE_TEXT = { textAnchor: 'middle' };
-const STYLE_LINE = { stroke: SharedStyle.LINE_MESH_COLOR.selected };
-
 let translator = new Translator();
 
 export default function WallFactory(name, info, textures) {
@@ -62,14 +58,8 @@ export default function WallFactory(name, info, textures) {
       let { x: x2, y: y2 } = layer.vertices.get(element.vertices.get(1));
 
       let length = Geometry.pointsDistance(x1, y1, x2, y2);
-      let length_5 = length / 5;
-
       let thickness = element.getIn(['properties', 'thickness', 'length']);
       let half_thickness = thickness / 2;
-      let half_thickness_eps = half_thickness + epsilon;
-      let char_height = 11;
-      let extra_epsilon = 5;
-      let textDistance = half_thickness + epsilon + extra_epsilon;
 
       return (element.selected) ?
         <g>
