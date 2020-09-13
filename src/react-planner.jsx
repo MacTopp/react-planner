@@ -39,14 +39,14 @@ class ReactPlanner extends Component {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let {store} = this.context;
     let {projectActions, catalog, stateExtractor, plugins} = this.props;
     plugins.forEach(plugin => plugin(store, stateExtractor));
     projectActions.initCatalog(catalog);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let {stateExtractor, state, projectActions, catalog} = nextProps;
     let plannerState = stateExtractor(state);
     let catalogReady = plannerState.getIn(['catalog', 'ready']);

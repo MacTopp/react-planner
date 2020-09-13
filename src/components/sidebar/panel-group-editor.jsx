@@ -55,7 +55,7 @@ export default class PanelGroupEditor extends Component {
     return true;
   }
 
-  componentWillReceiveProps( nextProps, nextContext ) {
+  UNSAFE_componentWillReceiveProps( nextProps, nextContext ) {
   }
 
   render() {

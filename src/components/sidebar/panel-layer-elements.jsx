@@ -87,7 +87,7 @@ export default class PanelLayerElement extends Component {
     return false;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let layer = nextProps.layers.get(nextProps.selectedLayer);
 
     if ( this.props.layers.hashCode() === nextProps.layers.hashCode() ) return;
