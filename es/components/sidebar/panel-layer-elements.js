@@ -95,8 +95,8 @@ var PanelLayerElement = function (_Component) {
       return false;
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       var layer = nextProps.layers.get(nextProps.selectedLayer);
 
       if (this.props.layers.hashCode() === nextProps.layers.hashCode()) return;

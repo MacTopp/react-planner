@@ -1,6 +1,6 @@
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -16,7 +16,7 @@ import ToolbarButton from './toolbar-button';
 import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
 import If from '../../utils/react-if';
-import { MODE_IDLE, MODE_3D_VIEW, MODE_3D_FIRST_PERSON, MODE_VIEWING_CATALOG, MODE_CONFIGURING_PROJECT } from '../../constants';
+import { MODE_VIEWING_CATALOG, MODE_CONFIGURING_PROJECT } from '../../constants';
 import * as SharedStyle from '../../shared-style';
 
 var iconTextStyle = {
@@ -25,23 +25,6 @@ var iconTextStyle = {
   fontWeight: 'bold',
   margin: '0px',
   userSelect: 'none'
-};
-
-var Icon2D = function Icon2D(_ref) {
-  var style = _ref.style;
-  return React.createElement(
-    'p',
-    { style: _extends({}, iconTextStyle, style) },
-    '2D'
-  );
-};
-var Icon3D = function Icon3D(_ref2) {
-  var style = _ref2.style;
-  return React.createElement(
-    'p',
-    { style: _extends({}, iconTextStyle, style) },
-    '3D'
-  );
 };
 
 var ASIDE_STYLE = {
@@ -101,7 +84,6 @@ var Toolbar = function (_Component) {
           allowProjectFileSupport = _props.allowProjectFileSupport,
           _context = this.context,
           projectActions = _context.projectActions,
-          viewer3DActions = _context.viewer3DActions,
           translator = _context.translator;
 
 
@@ -142,39 +124,6 @@ var Toolbar = function (_Component) {
         index: 4, condition: true, dom: React.createElement(
           ToolbarButton,
           {
-            active: [MODE_3D_VIEW].includes(mode),
-            tooltip: translator.t('3D View'),
-            onClick: function onClick(event) {
-              return viewer3DActions.selectTool3DView();
-            } },
-          React.createElement(Icon3D, null)
-        )
-      }, {
-        index: 5, condition: true, dom: React.createElement(
-          ToolbarButton,
-          {
-            active: [MODE_IDLE].includes(mode),
-            tooltip: translator.t('2D View'),
-            onClick: function onClick(event) {
-              return projectActions.setMode(MODE_IDLE);
-            } },
-          [MODE_3D_FIRST_PERSON, MODE_3D_VIEW].includes(mode) ? React.createElement(Icon2D, { style: { color: alterateColor } }) : React.createElement(FaMousePointer, { style: { color: alterateColor } })
-        )
-      }, {
-        index: 6, condition: true, dom: React.createElement(
-          ToolbarButton,
-          {
-            active: [MODE_3D_FIRST_PERSON].includes(mode),
-            tooltip: translator.t('3D First Person'),
-            onClick: function onClick(event) {
-              return viewer3DActions.selectTool3DFirstPerson();
-            } },
-          React.createElement(MdDirectionsRun, null)
-        )
-      }, {
-        index: 7, condition: true, dom: React.createElement(
-          ToolbarButton,
-          {
             active: false,
             tooltip: translator.t('Undo (CTRL-Z)'),
             onClick: function onClick(event) {
@@ -183,7 +132,7 @@ var Toolbar = function (_Component) {
           React.createElement(MdUndo, null)
         )
       }, {
-        index: 8, condition: true, dom: React.createElement(
+        index: 5, condition: true, dom: React.createElement(
           ToolbarButton,
           {
             active: [MODE_CONFIGURING_PROJECT].includes(mode),
@@ -231,8 +180,6 @@ Toolbar.propTypes = {
 
 Toolbar.contextTypes = {
   projectActions: PropTypes.object.isRequired,
-  viewer2DActions: PropTypes.object.isRequired,
-  viewer3DActions: PropTypes.object.isRequired,
   linesActions: PropTypes.object.isRequired,
   holesActions: PropTypes.object.isRequired,
   itemsActions: PropTypes.object.isRequired,

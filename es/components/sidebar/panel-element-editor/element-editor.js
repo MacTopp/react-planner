@@ -68,8 +68,8 @@ var ElementEditor = function (_Component) {
       return false;
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(_ref) {
       var element = _ref.element,
           layer = _ref.layer,
           state = _ref.state;

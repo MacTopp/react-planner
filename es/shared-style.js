@@ -18,6 +18,7 @@ export var MATERIAL_COLORS = {
     indigo: '#3F51B5',
     light_blue: '#03A9F4',
     light_green: '#8BC34A',
+    light_brown: '#8f6e50',
     lime: '#CDDC39',
     orange: '#FF9800',
     pink: '#E91E63',

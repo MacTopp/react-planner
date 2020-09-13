@@ -77,8 +77,8 @@ var FooterToggleButton = function (_Component) {
       return false;
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.toggleState != this.props.toggleState) this.state.active = nextProps.toggleState;
     }
   }, {

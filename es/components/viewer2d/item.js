@@ -45,18 +45,13 @@ export default function Item(_ref) {
     React.createElement(
       If,
       { condition: item.selected },
-      React.createElement(
-        'g',
-        { 'data-element-root': true,
-          'data-prototype': item.prototype,
-          'data-id': item.id,
-          'data-selected': item.selected,
-          'data-layer': layer.id,
-          'data-part': 'rotation-anchor'
-        },
-        React.createElement('circle', { cx: '0', cy: '150', r: '10', style: STYLE_CIRCLE }),
-        React.createElement('circle', { cx: '0', cy: '0', r: '150', style: STYLE_CIRCLE2 })
-      )
+      React.createElement('g', { 'data-element-root': true,
+        'data-prototype': item.prototype,
+        'data-id': item.id,
+        'data-selected': item.selected,
+        'data-layer': layer.id,
+        'data-part': 'rotation-anchor'
+      })
     )
   );
 }

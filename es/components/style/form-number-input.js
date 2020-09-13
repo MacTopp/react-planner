@@ -57,8 +57,8 @@ var FormNumberInput = function (_Component) {
   }
 
   _createClass(FormNumberInput, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       if (this.props.value !== nextProps.value) {
         this.setState({ showedValue: nextProps.value });
       }

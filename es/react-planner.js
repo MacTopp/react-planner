@@ -59,8 +59,8 @@ var ReactPlanner = function (_Component) {
       });
     }
   }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'UNSAFE_componentWillMount',
+    value: function UNSAFE_componentWillMount() {
       var store = this.context.store;
       var _props = this.props,
           projectActions = _props.projectActions,
@@ -74,8 +74,8 @@ var ReactPlanner = function (_Component) {
       projectActions.initCatalog(catalog);
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       var stateExtractor = nextProps.stateExtractor,
           state = nextProps.state,
           projectActions = nextProps.projectActions,
