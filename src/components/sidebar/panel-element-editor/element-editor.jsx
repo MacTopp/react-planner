@@ -54,7 +54,7 @@ export default class ElementEditor extends Component {
     return false;
   }
 
-  componentWillReceiveProps({ element, layer, state }) {
+  UNSAFE_componentWillReceiveProps({ element, layer, state }) {
     let { prototype, id } = element;
     let scene = this.props.state.get('scene');
     let selectedLayer = scene.getIn(['layers', scene.get('selectedLayer')]);
