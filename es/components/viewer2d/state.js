@@ -22,6 +22,8 @@ export default function State(_ref) {
       height = scene.height;
 
 
+  var recent = localStorage.getItem("imgData");
+
   activeSnapElement = activeSnapElement ? React.createElement(Snap, { snap: activeSnapElement, width: scene.width, height: scene.height }) : null;
   // snapElements = snapElements.map((snap,id) => <Snap key={id} snap={snap} width={scene.width} height={scene.height}/>);
   snapElements = null; //only for debug purpose
@@ -29,7 +31,7 @@ export default function State(_ref) {
   return React.createElement(
     'g',
     null,
-    React.createElement('image', { href: background, width: width, height: height }),
+    React.createElement('image', { href: recent, width: width, height: height }),
     React.createElement(
       'g',
       { transform: 'translate(0, ' + scene.height + ') scale(1, -1)', id: 'svg-drawing-paper' },

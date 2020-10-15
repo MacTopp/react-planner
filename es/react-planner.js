@@ -105,17 +105,14 @@ var ReactPlanner = function (_Component) {
       var sidebarH = height - footerBarH;
 
       var extractedState = stateExtractor(state);
-      var backgroundString = '';
-      if (background === 'eric') {
-        backgroundString = '_/_/src/components/style/Rahul2.jpg';
-      }
+
       return React.createElement(
         'div',
         { style: _extends({}, wrapperStyle, { height: height }) },
         React.createElement(Toolbar, _extends({ width: toolbarW, height: toolbarH, state: extractedState }, props)),
         React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
             return event.preventDefault();
-          }, background: backgroundString })),
+          }, background: background })),
         React.createElement(Sidebar, _extends({ width: sidebarW, height: sidebarH, state: extractedState }, props)),
         React.createElement(FooterBar, _extends({ width: width, height: footerBarH, state: extractedState }, props))
       );
