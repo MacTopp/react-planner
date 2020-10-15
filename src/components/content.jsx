@@ -5,12 +5,11 @@ import Viewer3D from './viewer3d/viewer3d';
 import Viewer3DFirstPerson from './viewer3d/viewer3d-first-person';
 import CatalogList from './catalog-view/catalog-list';
 import ProjectConfigurator from './configurator/project-configurator';
-
 import * as constants from '../constants';
 
-export default function Content({width, height, state, customContents}) {
+export default function Content({width, height, state, customContents, background}) {
   let mode = state.get('mode');
-
+	
   switch (mode) {
     case constants.MODE_3D_VIEW:
       return <Viewer3D state={state} width={width} height={height}/>;
@@ -34,7 +33,7 @@ export default function Content({width, height, state, customContents}) {
     case constants.MODE_DRAWING_ITEM:
     case constants.MODE_DRAGGING_HOLE:
     case constants.MODE_ROTATING_ITEM:
-      return <Viewer2D state={state} width={width} height={height}/>;
+      return <Viewer2D state={state} width={width} height={height} background={background}/>;
 
     case constants.MODE_CONFIGURING_PROJECT:
       return <ProjectConfigurator width={width} height={height} state={state}/>;

@@ -55,7 +55,8 @@ var ReactPlanner = function (_Component) {
         return _this2.props[actionNamespace];
       }), {
         translator: this.props.translator,
-        catalog: this.props.catalog
+        catalog: this.props.catalog,
+        background: this.props.background
       });
     }
   }, {
@@ -95,7 +96,8 @@ var ReactPlanner = function (_Component) {
           height = _props2.height,
           state = _props2.state,
           stateExtractor = _props2.stateExtractor,
-          props = _objectWithoutProperties(_props2, ['width', 'height', 'state', 'stateExtractor']);
+          background = _props2.background,
+          props = _objectWithoutProperties(_props2, ['width', 'height', 'state', 'stateExtractor', 'background']);
 
       var contentW = width - toolbarW - sidebarW;
       var toolbarH = height - footerBarH;
@@ -103,14 +105,17 @@ var ReactPlanner = function (_Component) {
       var sidebarH = height - footerBarH;
 
       var extractedState = stateExtractor(state);
-
+      var backgroundString = '';
+      if (background === 'eric') {
+        backgroundString = '_/_/src/components/style/Rahul2.jpg';
+      }
       return React.createElement(
         'div',
         { style: _extends({}, wrapperStyle, { height: height }) },
         React.createElement(Toolbar, _extends({ width: toolbarW, height: toolbarH, state: extractedState }, props)),
         React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
             return event.preventDefault();
-          } })),
+          }, background: backgroundString })),
         React.createElement(Sidebar, _extends({ width: sidebarW, height: sidebarH, state: extractedState }, props)),
         React.createElement(FooterBar, _extends({ width: width, height: footerBarH, state: extractedState }, props))
       );
@@ -134,7 +139,8 @@ ReactPlanner.propTypes = {
   sidebarComponents: PropTypes.array,
   footerbarComponents: PropTypes.array,
   customContents: PropTypes.object,
-  softwareSignature: PropTypes.string
+  softwareSignature: PropTypes.string,
+  background: PropTypes.string
 };
 
 ReactPlanner.contextTypes = {
@@ -145,7 +151,8 @@ ReactPlanner.childContextTypes = _extends({}, objectsMap(actions, function () {
   return PropTypes.object;
 }), {
   translator: PropTypes.object,
-  catalog: PropTypes.object
+  catalog: PropTypes.object,
+  background: PropTypes.string
 });
 
 ReactPlanner.defaultProps = {
@@ -157,7 +164,8 @@ ReactPlanner.defaultProps = {
   toolbarButtons: [],
   sidebarComponents: [],
   footerbarComponents: [],
-  customContents: {}
+  customContents: {},
+  background: ''
 };
 
 //redux connect

@@ -91,7 +91,8 @@ function extractElementData(node) {
 export default function Viewer2D(_ref, _ref2) {
   var state = _ref.state,
       width = _ref.width,
-      height = _ref.height;
+      height = _ref.height,
+      background = _ref.background;
   var viewer2DActions = _ref2.viewer2DActions,
       linesActions = _ref2.linesActions,
       holesActions = _ref2.holesActions,
@@ -394,19 +395,9 @@ export default function Viewer2D(_ref, _ref2) {
         'svg',
         { width: scene.width, height: scene.height },
         React.createElement(
-          'defs',
-          null,
-          React.createElement(
-            'pattern',
-            { id: 'diagonalFill', patternUnits: 'userSpaceOnUse', width: '4', height: '4', fill: '#FFF' },
-            React.createElement('rect', { x: '0', y: '0', width: '4', height: '4', fill: '#FFF' }),
-            React.createElement('path', { d: 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2', style: { stroke: '#8E9BA2', strokeWidth: 1 } })
-          )
-        ),
-        React.createElement(
           'g',
           { style: Object.assign(mode2Cursor(mode), mode2PointerEvents(mode)) },
-          React.createElement(State, { state: state, catalog: catalog })
+          React.createElement(State, { state: state, catalog: catalog, background: background })
         )
       )
     )

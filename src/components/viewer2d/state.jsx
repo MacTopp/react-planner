@@ -9,10 +9,12 @@ const guideStyle = {
   strokewidth:'2.5px'
 };
 
-export default function State({state, catalog}) {
+export default function State({state, catalog, background}) {
 
   let {activeSnapElement, snapElements, scene} = state;
   let {width, height} = scene;
+
+  const recent = localStorage.getItem("imgData")
 
   activeSnapElement = activeSnapElement ?
     <Snap snap={activeSnapElement} width={scene.width} height={scene.height}/> : null;
@@ -21,7 +23,7 @@ export default function State({state, catalog}) {
 
   return (
     <g>
-      <rect x="0" y="0" width={width} height={height} fill={SharedStyle.COLORS.white}/>
+	  <image href={recent} width={width} height={height}/>
       <g transform={`translate(0, ${scene.height}) scale(1, -1)`} id="svg-drawing-paper">
 
         <Scene scene={scene} catalog={catalog}/>

@@ -35,7 +35,8 @@ class ReactPlanner extends Component {
     return {
       ...objectsMap(actions, actionNamespace => this.props[actionNamespace]),
       translator: this.props.translator,
-      catalog: this.props.catalog,
+	  catalog: this.props.catalog,
+	  background: this.props.background
     }
   }
 
@@ -56,19 +57,19 @@ class ReactPlanner extends Component {
   }
 
   render() {
-    let {width, height, state, stateExtractor, ...props} = this.props;
+    let {width, height, state, stateExtractor, background, ...props} = this.props;
 
     let contentW = width - toolbarW - sidebarW;
     let toolbarH = height - footerBarH;
     let contentH = height - footerBarH;
     let sidebarH = height - footerBarH;
 
-    let extractedState = stateExtractor(state);
+	let extractedState = stateExtractor(state);
 
     return (
       <div style={{...wrapperStyle, height}}>
         <Toolbar width={toolbarW} height={toolbarH} state={extractedState} {...props} />
-        <Content width={contentW} height={contentH} state={extractedState} {...props} onWheel={event => event.preventDefault()} />
+        <Content width={contentW} height={contentH} state={extractedState} {...props} onWheel={event => event.preventDefault()} background={background}/>
         <Sidebar width={sidebarW} height={sidebarH} state={extractedState} {...props} />
         <FooterBar width={width} height={footerBarH} state={extractedState} {...props} />
       </div>
@@ -90,7 +91,8 @@ ReactPlanner.propTypes = {
   sidebarComponents: PropTypes.array,
   footerbarComponents: PropTypes.array,
   customContents: PropTypes.object,
-  softwareSignature: PropTypes.string
+  softwareSignature: PropTypes.string,
+  background: PropTypes.string
 };
 
 ReactPlanner.contextTypes = {
@@ -101,6 +103,7 @@ ReactPlanner.childContextTypes = {
   ...objectsMap(actions, () => PropTypes.object),
   translator: PropTypes.object,
   catalog: PropTypes.object,
+  background: PropTypes.string
 };
 
 ReactPlanner.defaultProps = {
@@ -113,6 +116,7 @@ ReactPlanner.defaultProps = {
   sidebarComponents: [],
   footerbarComponents: [],
   customContents: {},
+  background: ''
 };
 
 //redux connect
