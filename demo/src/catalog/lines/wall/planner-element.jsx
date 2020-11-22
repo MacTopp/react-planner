@@ -40,5 +40,5 @@ const textures = {
   },
 };
 
-export default ElementsFactories.WallFactory('wall', info, textures);
+export default ElementsFactories.WallFactory('fence', info, textures);
 

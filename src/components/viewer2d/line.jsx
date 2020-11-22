@@ -45,8 +45,8 @@ export default function Line({line, layer, scene, catalog}) {
   let half_thickness = thickness / 2;
 
   let renderedLine = catalog.getElement(line.type).render2D(line, layer);
-  let renderedRuler = line.selected ?
-    <Ruler unit={scene.unit} length={length} transform={`translate(0, ${half_thickness + 10} )`}/> : null;
+  let renderedRuler = null; //line.selected ?
+//     <Ruler unit={scene.unit} length={length} transform={`translate(0, ${half_thickness + 10} )`}/> : null;
 
   return (
     <g
