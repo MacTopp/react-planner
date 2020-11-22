@@ -99,7 +99,7 @@ var ReactPlanner = function (_Component) {
           background = _props2.background,
           props = _objectWithoutProperties(_props2, ['width', 'height', 'state', 'stateExtractor', 'background']);
 
-      var contentW = width - toolbarW - sidebarW;
+      var contentW = width - toolbarW;
       var toolbarH = height - footerBarH;
       var contentH = height - footerBarH;
       var sidebarH = height - footerBarH;
@@ -113,7 +113,6 @@ var ReactPlanner = function (_Component) {
         React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
             return event.preventDefault();
           }, background: background })),
-        React.createElement(Sidebar, _extends({ width: sidebarW, height: sidebarH, state: extractedState }, props)),
         React.createElement(FooterBar, _extends({ width: width, height: footerBarH, state: extractedState }, props))
       );
     }

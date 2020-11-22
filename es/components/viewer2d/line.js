@@ -55,7 +55,8 @@ export default function Line(_ref) {
   var half_thickness = thickness / 2;
 
   var renderedLine = catalog.getElement(line.type).render2D(line, layer);
-  var renderedRuler = line.selected ? React.createElement(Ruler, { unit: scene.unit, length: length, transform: 'translate(0, ' + (half_thickness + 10) + ' )' }) : null;
+  var renderedRuler = null; //line.selected ?
+  //     <Ruler unit={scene.unit} length={length} transform={`translate(0, ${half_thickness + 10} )`}/> : null;
 
   return React.createElement(
     'g',

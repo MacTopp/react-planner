@@ -68,13 +68,11 @@ export default function Area(_ref) {
       areaSize -= areapolygon(holePolygon, false);
     });
 
-    renderedAreaSize = React.createElement(
-      'text',
-      { x: '0', y: '0', transform: 'translate(' + center[0] + ' ' + center[1] + ') scale(1, -1)', style: STYLE_TEXT },
-      (areaSize / 10000).toFixed(2),
-      ' m',
-      String.fromCharCode(0xb2)
-    );
+    renderedAreaSize = null; // (
+    //   <text x="0" y="0" transform={`translate(${center[0]} ${center[1]}) scale(1, -1)`} style={STYLE_TEXT}>
+    //     {(areaSize / 10000).toFixed(2)} m{String.fromCharCode(0xb2)}
+    //   </text>
+    // )
   }
 
   return React.createElement(
