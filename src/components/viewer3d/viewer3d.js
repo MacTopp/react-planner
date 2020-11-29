@@ -163,7 +163,7 @@ export default class Scene3DViewer extends React.Component {
     this.renderer.renderLists.dispose();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let { width, height } = nextProps;
 
     let actions = {

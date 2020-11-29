@@ -13,13 +13,16 @@ var guideStyle = {
 
 export default function State(_ref) {
   var state = _ref.state,
-      catalog = _ref.catalog;
+      catalog = _ref.catalog,
+      background = _ref.background;
   var activeSnapElement = state.activeSnapElement,
       snapElements = state.snapElements,
       scene = state.scene;
   var width = scene.width,
       height = scene.height;
 
+
+  var recent = localStorage.getItem("imgData");
 
   activeSnapElement = activeSnapElement ? React.createElement(Snap, { snap: activeSnapElement, width: scene.width, height: scene.height }) : null;
   // snapElements = snapElements.map((snap,id) => <Snap key={id} snap={snap} width={scene.width} height={scene.height}/>);
@@ -28,7 +31,7 @@ export default function State(_ref) {
   return React.createElement(
     'g',
     null,
-    React.createElement('rect', { x: '0', y: '0', width: width, height: height, fill: SharedStyle.COLORS.white }),
+    React.createElement('image', { href: recent, width: width, height: height }),
     React.createElement(
       'g',
       { transform: 'translate(0, ' + scene.height + ') scale(1, -1)', id: 'svg-drawing-paper' },

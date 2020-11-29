@@ -55,12 +55,13 @@ var ReactPlanner = function (_Component) {
         return _this2.props[actionNamespace];
       }), {
         translator: this.props.translator,
-        catalog: this.props.catalog
+        catalog: this.props.catalog,
+        background: this.props.background
       });
     }
   }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'UNSAFE_componentWillMount',
+    value: function UNSAFE_componentWillMount() {
       var store = this.context.store;
       var _props = this.props,
           projectActions = _props.projectActions,
@@ -74,8 +75,8 @@ var ReactPlanner = function (_Component) {
       projectActions.initCatalog(catalog);
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       var stateExtractor = nextProps.stateExtractor,
           state = nextProps.state,
           projectActions = nextProps.projectActions,
@@ -95,9 +96,10 @@ var ReactPlanner = function (_Component) {
           height = _props2.height,
           state = _props2.state,
           stateExtractor = _props2.stateExtractor,
-          props = _objectWithoutProperties(_props2, ['width', 'height', 'state', 'stateExtractor']);
+          background = _props2.background,
+          props = _objectWithoutProperties(_props2, ['width', 'height', 'state', 'stateExtractor', 'background']);
 
-      var contentW = width - toolbarW - sidebarW;
+      var contentW = width - toolbarW;
       var toolbarH = height - footerBarH;
       var contentH = height - footerBarH;
       var sidebarH = height - footerBarH;
@@ -110,8 +112,7 @@ var ReactPlanner = function (_Component) {
         React.createElement(Toolbar, _extends({ width: toolbarW, height: toolbarH, state: extractedState }, props)),
         React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
             return event.preventDefault();
-          } })),
-        React.createElement(Sidebar, _extends({ width: sidebarW, height: sidebarH, state: extractedState }, props)),
+          }, background: background })),
         React.createElement(FooterBar, _extends({ width: width, height: footerBarH, state: extractedState }, props))
       );
     }
@@ -134,7 +135,8 @@ ReactPlanner.propTypes = {
   sidebarComponents: PropTypes.array,
   footerbarComponents: PropTypes.array,
   customContents: PropTypes.object,
-  softwareSignature: PropTypes.string
+  softwareSignature: PropTypes.string,
+  background: PropTypes.string
 };
 
 ReactPlanner.contextTypes = {
@@ -145,7 +147,8 @@ ReactPlanner.childContextTypes = _extends({}, objectsMap(actions, function () {
   return PropTypes.object;
 }), {
   translator: PropTypes.object,
-  catalog: PropTypes.object
+  catalog: PropTypes.object,
+  background: PropTypes.string
 });
 
 ReactPlanner.defaultProps = {
@@ -157,7 +160,8 @@ ReactPlanner.defaultProps = {
   toolbarButtons: [],
   sidebarComponents: [],
   footerbarComponents: [],
-  customContents: {}
+  customContents: {},
+  background: ''
 };
 
 //redux connect

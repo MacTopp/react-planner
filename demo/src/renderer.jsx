@@ -87,7 +87,8 @@ ReactDOM.render(
             height={height}
             plugins={plugins}
             toolbarButtons={toolbarButtons}
-            stateExtractor={state => state.get('react-planner')}
+			stateExtractor={state => state.get('react-planner')}
+			background={'rahul'}
           />
         }
       </ContainerDimensions>
